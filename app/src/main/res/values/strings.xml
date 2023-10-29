@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NetEase Cloud Music</string>
+    <string name="look">look</string>
+    <string name="mine">mine</string>
+    <string name="follow">follow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
