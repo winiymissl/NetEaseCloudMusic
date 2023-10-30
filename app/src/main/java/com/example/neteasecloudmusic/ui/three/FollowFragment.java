@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 /**
  * @Author winiymissl
- * @Date 2023-10-29 21:33a
+ * @Date 2023-10-29 21:33
  * @Version 1.0
  */
 public class FollowFragment extends Fragment {
