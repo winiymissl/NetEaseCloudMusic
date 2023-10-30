@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.neteasecloudmusic.R;
+
 /**
  * @Author winiymissl
  * @Date 2023-10-29 21:33
@@ -18,7 +20,8 @@ public class FollowFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        inflater.inflate(, false);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_follow, container, false);
+
+        return view;
     }
 }
