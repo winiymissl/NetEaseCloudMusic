@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.neteasecloudmusic.R;
+import com.example.neteasecloudmusic.ui.three.FollowFragment;
 import com.example.neteasecloudmusic.ui.three.HomeFragment;
 import com.example.neteasecloudmusic.ui.adapter.viewpager.HomeFragmentViewPagerAdapter;
 import com.example.neteasecloudmusic.ui.three.MineFragment;
@@ -42,7 +43,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         List<Fragment> list = new ArrayList();
         list.add(new HomeFragment());
         list.add(new MineFragment());
-//        list.add(new HomeFragment());
+        list.add(new FollowFragment());
         homeFragmentViewPagerAdapter = new HomeFragmentViewPagerAdapter(getSupportFragmentManager(), list);
         viewPager.setAdapter(homeFragmentViewPagerAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
