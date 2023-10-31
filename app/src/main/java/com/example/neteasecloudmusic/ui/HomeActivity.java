@@ -25,8 +25,6 @@ import java.util.List;
  * @author winiymissl
  */
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
-
-
     private ImageButton imageButton_listen_song;
     private ImageButton imageButton_scan;
     private TextView textView_search;
