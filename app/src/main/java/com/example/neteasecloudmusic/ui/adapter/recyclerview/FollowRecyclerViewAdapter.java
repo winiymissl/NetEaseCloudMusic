@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.neteasecloudmusic.R;
+import com.example.neteasecloudmusic.ui.adapter.entity.RecyclerViewFollowItem;
 
 import java.util.List;
 
@@ -46,8 +47,9 @@ public class FollowRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder myViewholder = (MyViewHolder) holder;
-        list.get(position);
-
+        RecyclerViewFollowItem item = (RecyclerViewFollowItem) list.get(position);
+        myViewholder.imageView.setImageResource(item.getPicOne());
+        myViewholder.textView.setText(item.getNameOne());
     }
 
     @Override

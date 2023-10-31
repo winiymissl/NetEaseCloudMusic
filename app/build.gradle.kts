@@ -35,8 +35,8 @@ dependencies {
     val work_version = "2.8.0"
     // (Java only)
     // Room数据库库
-    implementation("androidx.room:room-runtime:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
+//    implementation("androidx.room:room-runtime:$room_version")
+//    annotationProcessor("androidx.room:room-compiler:$room_version")
     // Banner
     implementation("com.github.bumptech.glide:glide:4.12.0")
     //glide框架依赖

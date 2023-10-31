@@ -27,10 +27,12 @@ public class FollowFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_follow, container, false);
         RecyclerView recyclerView_1 = view.findViewById(R.id.rv_follow_1);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         FollowRecyclerViewAdapter followRecyclerViewAdapter = new FollowRecyclerViewAdapter(RecyclerViewFollowItem.getData());
         recyclerView_1.setAdapter(followRecyclerViewAdapter);
         recyclerView_1.setLayoutManager(layoutManager);
+
+
         return view;
     }
 }
