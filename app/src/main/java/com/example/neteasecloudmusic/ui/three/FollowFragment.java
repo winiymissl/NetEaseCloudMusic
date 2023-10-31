@@ -1,6 +1,7 @@
 package com.example.neteasecloudmusic.ui.three;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.neteasecloudmusic.R;
 import com.example.neteasecloudmusic.ui.adapter.entity.RecyclerViewFollowItem;
 import com.example.neteasecloudmusic.ui.adapter.recyclerview.FollowRecyclerViewAdapter;
+import com.example.neteasecloudmusic.ui.adapter.viewpager.HomeFragmentViewPagerAdapter;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author winiymissl
@@ -32,6 +39,14 @@ public class FollowFragment extends Fragment {
         recyclerView_1.setAdapter(followRecyclerViewAdapter);
         recyclerView_1.setLayoutManager(layoutManager);
 
+        TabLayout tabLayout = view.findViewById(R.id.tab_follow_now);
+        tabLayout.addTab(tabLayout.newTab().setText("全部"));
+        tabLayout.addTab(tabLayout.newTab().setText("音乐人"));
+        tabLayout.addTab(tabLayout.newTab().setText("朋友"));
+        //放置碎片
+        List list = new ArrayList();
+//        HomeFragmentViewPagerAdapter homeFragmentViewPagerAdapter = new HomeFragmentViewPagerAdapter();
+        ViewPager viewPager = view.findViewById(R.id.vp_follow);
 
         return view;
     }
