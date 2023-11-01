@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import com.example.neteasecloudmusic.R;
 
+/**
+ * @author winiymissl
+ */
 public class SearchActivity extends AppCompatActivity {
 
     @Override

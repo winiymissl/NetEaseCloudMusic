@@ -52,16 +52,22 @@ public class FollowListViewInnerItem {
 
     public static final int[] icon = new int[]{
             R.drawable.tiga,
+            R.drawable.dragonarmor,
 
     };
     public static final String[] name = new String[]{
-            "迪迦"
+            "迪迦",
+            "炎龙铠甲"
+
     };
     public static final String[] text = new String[]{
-            "大家好我叫迪迦"
+            "大家好我叫迪迦,炎龙铠甲是个傻逼",
+            "大家好我叫炎龙铠甲"
+
     };
     public static final int[] image = new int[]{
-            R.drawable.tiga_back
+            R.drawable.tiga_back,
+            R.drawable.dragon_back,
     };
 
     public static List getData() {
