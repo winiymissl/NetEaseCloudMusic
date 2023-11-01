@@ -18,6 +18,7 @@ import com.example.neteasecloudmusic.R;
 import com.example.neteasecloudmusic.ui.adapter.entity.RecyclerViewFollowItem;
 import com.example.neteasecloudmusic.ui.adapter.recyclerview.FollowRecyclerViewAdapter;
 import com.example.neteasecloudmusic.ui.adapter.viewpager.HomeFragmentViewPagerAdapter;
+import com.example.neteasecloudmusic.ui.followfragment.FollowInnerFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -40,14 +41,22 @@ public class FollowFragment extends Fragment {
         recyclerView_1.setLayoutManager(layoutManager);
 
         TabLayout tabLayout = view.findViewById(R.id.tab_follow_now);
-        tabLayout.addTab(tabLayout.newTab().setText("全部"));
-        tabLayout.addTab(tabLayout.newTab().setText("音乐人"));
-        tabLayout.addTab(tabLayout.newTab().setText("朋友"));
+//        tabLayout.addTab(tabLayout.newTab().setText("全部"));
+//        tabLayout.addTab(tabLayout.newTab().setText("音乐人"));
+//        tabLayout.addTab(tabLayout.newTab().setText("朋友"));
         //放置碎片
         List list = new ArrayList();
-//        HomeFragmentViewPagerAdapter homeFragmentViewPagerAdapter = new HomeFragmentViewPagerAdapter();
+        list.add(new FollowInnerFragment("全部"));
+        list.add(new FollowInnerFragment("音乐人"));
+        list.add(new FollowInnerFragment("朋友"));
+        HomeFragmentViewPagerAdapter homeFragmentViewPagerAdapter = new HomeFragmentViewPagerAdapter(getChildFragmentManager(), list);
         ViewPager viewPager = view.findViewById(R.id.vp_follow);
-
+        viewPager.setAdapter(homeFragmentViewPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tabAt = tabLayout.getTabAt(i);
+            tabAt.setText(((FollowInnerFragment) list.get(i)).getName());
+        }
         return view;
     }
 }

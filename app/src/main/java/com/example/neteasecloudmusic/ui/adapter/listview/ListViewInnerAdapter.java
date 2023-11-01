@@ -24,11 +24,9 @@ import java.util.List;
  */
 public class ListViewInnerAdapter extends BaseAdapter {
     List list;
-    Context context;
 
-    public ListViewInnerAdapter(Context context, List list) {
+    public ListViewInnerAdapter(List list) {
         this.list = list;
-        this.context = context;
     }
 
     @Override
@@ -50,7 +48,7 @@ public class ListViewInnerAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = null;
         if (convertView == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.item_mine_inner_listview, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mine_inner_listview, parent, false);
         } else {
             view = convertView;
         }

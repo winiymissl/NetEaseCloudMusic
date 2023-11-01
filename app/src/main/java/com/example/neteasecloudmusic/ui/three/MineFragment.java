@@ -1,9 +1,15 @@
 package com.example.neteasecloudmusic.ui.three;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,10 +36,25 @@ import java.util.List;
  * @Version 1.0
  */
 public class MineFragment extends Fragment {
+
+
+    private ImageView imageView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
+        imageView = view.findViewById(R.id.iv_mine_fragment);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, 1);
+
+
+            }
+        });
         RecyclerView recyclerView = view.findViewById(R.id.rv_mine_1);
         TabLayout tabLayout = view.findViewById(R.id.tab_mine);
         ViewPager viewPager = view.findViewById(R.id.vp_mine);
@@ -73,4 +94,20 @@ public class MineFragment extends Fragment {
         recyclerView.setAdapter(mineRecyclerView1);
         return view;
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            if (data != null) {
+                // 获取选择的照片的URI
+                Uri selectedImageUri = data.getData();
+
+                // 这里可以处理选定的照片，例如显示在ImageView中
+                imageView.setImageURI(selectedImageUri);
+            }
+        }
+    }
+
 }

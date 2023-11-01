@@ -42,7 +42,7 @@ public class MineFragmentInner extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine_inner, container, false);
         ListView listView = view.findViewById(R.id.lv_mine_inner);
-        ListViewInnerAdapter listViewInnerAdapter = new ListViewInnerAdapter(getActivity(), ListViewInnerItem.getData());
+        ListViewInnerAdapter listViewInnerAdapter = new ListViewInnerAdapter(ListViewInnerItem.getData());
         listView.setAdapter(listViewInnerAdapter);
 
         ListView listView2 = view.findViewById(R.id.lv_mine_inner_2);
