@@ -54,8 +54,6 @@ public class MineFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
-
-
             }
         });
 
@@ -63,7 +61,6 @@ public class MineFragment extends Fragment {
         TabLayout tabLayout = view.findViewById(R.id.tab_mine);
 //        ViewPager viewPager = view.findViewById(R.id.vp_mine);
 //        List list = new ArrayList();
-
 //        HomeFragmentViewPagerAdapter homeFragmentViewPagerAdapter = new HomeFragmentViewPagerAdapter(getChildFragmentManager(), list);
 //        viewPager.setAdapter(homeFragmentViewPagerAdapter);
 //        tabLayout.setupWithViewPager(viewPager);
