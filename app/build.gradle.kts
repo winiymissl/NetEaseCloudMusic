@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
 }
 
+
 android {
     namespace = "com.example.neteasecloudmusic"
     compileSdk = 33
@@ -30,9 +31,40 @@ android {
     }
 }
 
+
 dependencies {
+    //ijkplayer
+//    # required, enough for most devices.
+    implementation("tv.danmaku.ijk.media:ijkplayer-java:0.8.8")
+    implementation("tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8")
+
+//    # Other ABIs: optional
+    implementation("tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8")
+    implementation("tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8")
+    implementation("tv.danmaku.ijk.media:ijkplayer-x86:0.8.8")
+    implementation("tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8")
+
+//    # ExoPlayer as IMediaPlayer: optional, experimental
+    implementation("tv.danmaku.ijk.media:ijkplayer-exo:0.8.8")
+
+    //相册选择器
+    // PictureSelector basic (Necessary)
+    implementation("io.github.lucksiege:pictureselector:v3.11.1")
+
+    // image compress library (Not necessary)
+    implementation("io.github.lucksiege:compress:v3.11.1")
+
+    // uCrop library (Not necessary)
+    implementation("io.github.lucksiege:ucrop:v3.11.1")
+
+    // simple camerax library (Not necessary)
+    implementation("io.github.lucksiege:camerax:v3.11.1")
+
+
     val room_version = "2.5.0"
     val work_version = "2.8.0"
+
+
     // (Java only)
     // Room数据库库
 //    implementation("androidx.room:room-runtime:$room_version")
