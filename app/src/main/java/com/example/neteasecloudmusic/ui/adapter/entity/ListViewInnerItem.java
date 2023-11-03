@@ -19,13 +19,22 @@ public class ListViewInnerItem {
     public static final int[] pic = new int[]{
             R.drawable.yuzhibo,
             R.drawable.yuzhibo,
+            R.drawable.yuzhibo,
+            R.drawable.yuzhibo,
+            R.drawable.yuzhibo,
 
     };
     public static final String[] name = new String[]{
             "宇智波斑",
             "宇智波斑",
+            "宇智波斑",
+            "宇智波斑",
+            "宇智波斑",
     };
     public static final String[] count = new String[]{
+            "5",
+            "5",
+            "5",
             "5",
             "5",
     };

@@ -46,12 +46,13 @@
         app:layout_constraintTop_toBottomOf="@id/tb_home_activity">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_mine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#EEEEEE">
 
             <FrameLayout
-
+                android:id="@+id/mine_disappear"
                 android:layout_width="match_parent"
                 android:layout_height="161dp"
                 app:layout_scrollFlags="scroll">
@@ -71,6 +72,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tv_mine_cardview"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_marginTop="40dp"

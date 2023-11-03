@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,6 +31,7 @@ import com.example.neteasecloudmusic.ui.adapter.recyclerview.RecyclerViewMineAda
 import com.example.neteasecloudmusic.ui.adapter.viewpager.HomeFragmentViewPagerAdapter;
 import com.example.neteasecloudmusic.ui.lookfragment.HomeInnerFragment;
 import com.example.neteasecloudmusic.ui.minefragment.MineFragmentInner;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -39,14 +43,33 @@ import java.util.List;
  * @Version 1.0
  */
 public class MineFragment extends Fragment {
-
-
     private ImageView imageView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
+        Toolbar toolbar = view.findViewById(R.id.tb_home_activity);
+//        FrameLayout frameLayout = view.findViewById(R.id.mine_disappear);
+//        AppBarLayout appBarLayout = view.findViewById(R.id.appbar_mine);
+//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+//            @Override
+//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+//                int viewHeight = frameLayout.getHeight();
+//                int viewTop = frameLayout.getTop();
+//                boolean isViewVisible = Math.abs(viewTop) < viewHeight;
+//                if (!isViewVisible) {
+//                    View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.item_toolbar_headimage, toolbar, false);
+//                    ImageView imageView1 = view1.findViewById(R.id.iv_mine_toolbar);
+//                    TextView textView1 = view1.findViewById(R.id.tv_mine_toolbar);
+//                    ImageView imageView2 = view.findViewById(R.id.iv_mine_fragment);
+//                    TextView textView = view.findViewById(R.id.tv_mine_cardview);
+//                    imageView1.setImageDrawable(imageView2.getDrawable());
+//                    textView1.setText(textView.getText());
+//                    toolbar.addView(view1);
+//                }
+//            }
+//        });
         imageView = view.findViewById(R.id.iv_mine_fragment);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
