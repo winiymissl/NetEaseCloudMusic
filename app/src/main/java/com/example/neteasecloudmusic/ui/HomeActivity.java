@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.neteasecloudmusic.R;
 import com.example.neteasecloudmusic.ui.three.FollowFragment;
-import com.example.neteasecloudmusic.ui.three.HomeFragment;
+import com.example.neteasecloudmusic.ui.three.LookFragment;
 import com.example.neteasecloudmusic.ui.adapter.viewpager.HomeFragmentViewPagerAdapter;
 import com.example.neteasecloudmusic.ui.three.MineFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav_home_activity);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         List<Fragment> list = new ArrayList();
-        list.add(new HomeFragment());
+        list.add(new LookFragment());
         list.add(new MineFragment());
         list.add(new FollowFragment());
         homeFragmentViewPagerAdapter = new HomeFragmentViewPagerAdapter(getSupportFragmentManager(), list);

@@ -33,19 +33,21 @@ android {
 
 
 dependencies {
+    //mmkv
+//    implementation("com.tencent:mmkv:1.3.1")
     //ijkplayer
 //    # required, enough for most devices.
-    implementation("tv.danmaku.ijk.media:ijkplayer-java:0.8.8")
-    implementation("tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8")
+//    implementation("tv.danmaku.ijk.media:ijkplayer-java:0.8.8")
+//    implementation("tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8")
 
 //    # Other ABIs: optional
-    implementation("tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8")
-    implementation("tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8")
-    implementation("tv.danmaku.ijk.media:ijkplayer-x86:0.8.8")
-    implementation("tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8")
+//    implementation("tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8")
+//    implementation("tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8")
+//    implementation("tv.danmaku.ijk.media:ijkplayer-x86:0.8.8")
+//    implementation("tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8")
 
 //    # ExoPlayer as IMediaPlayer: optional, experimental
-    implementation("tv.danmaku.ijk.media:ijkplayer-exo:0.8.8")
+//    implementation("tv.danmaku.ijk.media:ijkplayer-exo:0.8.8")
 
     //相册选择器
     // PictureSelector basic (Necessary)
@@ -54,7 +56,7 @@ dependencies {
     // image compress library (Not necessary)
     implementation("io.github.lucksiege:compress:v3.11.1")
 
-    // uCrop library (Not necessary)
+    //uCrop library (Not necessary)
     implementation("io.github.lucksiege:ucrop:v3.11.1")
 
     // simple camerax library (Not necessary)

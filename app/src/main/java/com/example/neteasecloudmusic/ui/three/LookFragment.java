@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class LookFragment extends Fragment implements View.OnClickListener {
     private ImageButton imageButton_listen_song;
     private ImageButton imageButton_scan;
     private TextView textView_search;
@@ -43,6 +45,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         try {
+            DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawerLayout_home);
+            ImageButton imageButton1 = view.findViewById(R.id.ib_look);
+            imageButton1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            });
             Toolbar toolbar = view.findViewById(R.id.tb_home_activity);
             imageButton_scan = toolbar.findViewById(R.id.ib_top_scan);
             textView_search = toolbar.findViewById(R.id.tv_top_home_activity);

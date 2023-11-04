@@ -5,6 +5,7 @@ import static android.app.Activity.RESULT_OK;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +13,23 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.core.widget.NestedScrollView;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
 import com.example.neteasecloudmusic.R;
+import com.example.neteasecloudmusic.ui.GlideEngine;
 import com.example.neteasecloudmusic.ui.adapter.entity.ListViewInnerItem;
 import com.example.neteasecloudmusic.ui.adapter.entity.MineRecyclerView1Item;
 import com.example.neteasecloudmusic.ui.adapter.recyclerview.MineRecyclerView1;
@@ -33,6 +39,11 @@ import com.example.neteasecloudmusic.ui.lookfragment.HomeInnerFragment;
 import com.example.neteasecloudmusic.ui.minefragment.MineFragmentInner;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
+import com.luck.picture.lib.basic.PictureSelector;
+import com.luck.picture.lib.config.SelectMimeType;
+import com.luck.picture.lib.engine.ImageEngine;
+import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.interfaces.OnResultCallbackListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +60,14 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
-        Toolbar toolbar = view.findViewById(R.id.tb_home_activity);
+        DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawerLayout_home);
+        ImageButton imageButton = view.findViewById(R.id.ib_mine);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
 //        FrameLayout frameLayout = view.findViewById(R.id.mine_disappear);
 //        AppBarLayout appBarLayout = view.findViewById(R.id.appbar_mine);
 //        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -77,6 +95,7 @@ public class MineFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
+
             }
         });
 
@@ -150,5 +169,4 @@ public class MineFragment extends Fragment {
             }
         }
     }
-
 }

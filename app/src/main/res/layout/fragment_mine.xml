@@ -7,7 +7,7 @@
     android:background="#EEEEEE">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb_home_activity"
+        android:id="@+id/tb_mine_activity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="32dp"
@@ -20,6 +20,7 @@
             android:layout_height="match_parent">
 
             <ImageButton
+                android:id="@+id/ib_mine"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="left|center"
@@ -43,7 +44,7 @@
         android:id="@+id/coord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tb_home_activity">
+        app:layout_constraintTop_toBottomOf="@id/tb_mine_activity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_mine"

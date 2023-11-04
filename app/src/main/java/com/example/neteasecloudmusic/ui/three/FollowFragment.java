@@ -5,10 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +38,21 @@ public class FollowFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_follow, container, false);
+        DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawerLayout_home);
+        ImageButton imageButton = view.findViewById(R.id.ib_follow_drawer);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                } catch (Exception e) {
+                    Log.d("ImageButtonWhetherHaveQuestion", e.toString());
+                }
+            }
+        });
+
+
         RecyclerView recyclerView_1 = view.findViewById(R.id.rv_follow_1);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         FollowRecyclerViewAdapter followRecyclerViewAdapter = new FollowRecyclerViewAdapter(RecyclerViewFollowItem.getData());
@@ -41,9 +60,6 @@ public class FollowFragment extends Fragment {
         recyclerView_1.setLayoutManager(layoutManager);
 
         TabLayout tabLayout = view.findViewById(R.id.tab_follow_now);
-//        tabLayout.addTab(tabLayout.newTab().setText("全部"));
-//        tabLayout.addTab(tabLayout.newTab().setText("音乐人"));
-//        tabLayout.addTab(tabLayout.newTab().setText("朋友"));
         //放置碎片
         List list = new ArrayList();
         list.add(new FollowInnerFragment("全部"));
