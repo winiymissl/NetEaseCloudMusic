@@ -29,10 +29,17 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 
+
+
 dependencies {
+    //exoPlayer
+    implementation("com.google.android.exoplayer:exoplayer:2.18.5")
     //mmkv
 //    implementation("com.tencent:mmkv:1.3.1")
     //ijkplayer

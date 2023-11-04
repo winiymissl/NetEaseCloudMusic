@@ -137,8 +137,8 @@ public class MineFragment extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(mineRecyclerView1);
 //        View view = inflater.inflate(R.layout.fragment_mine_inner, container, false);
-        RecyclerView listView = view.findViewById(R.id.lv_mine_inner);
 
+        RecyclerView listView = view.findViewById(R.id.lv_mine_inner);
         RecyclerViewMineAdapter recyclerViewMineAdapter = new RecyclerViewMineAdapter(ListViewInnerItem.getData());
         listView.setAdapter(recyclerViewMineAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -148,9 +148,9 @@ public class MineFragment extends Fragment {
         listView2.setAdapter(recyclerViewMineAdapter);
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(getActivity());
         listView2.setLayoutManager(layoutManager1);
-        RecyclerView listView3 = view.findViewById(R.id.lv_mine_inner_3);
+        RecyclerView listView3 = view.findViewById(R.id.lv_mine_inner_3_);
         listView3.setAdapter(recyclerViewMineAdapter);
-        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(getContext());
         listView3.setLayoutManager(layoutManager2);
         return view;
     }
