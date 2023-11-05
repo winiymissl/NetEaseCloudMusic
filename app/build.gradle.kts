@@ -34,10 +34,9 @@ android {
     }
 }
 
-
-
-
 dependencies {
+    //进度条合集
+//    implementation("com.github.ForgetAll:LoadingDialog:v1.1.2")
     //exoPlayer
     implementation("com.google.android.exoplayer:exoplayer:2.18.5")
     //mmkv

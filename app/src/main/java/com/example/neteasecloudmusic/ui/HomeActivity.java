@@ -3,19 +3,27 @@ package com.example.neteasecloudmusic.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.neteasecloudmusic.R;
+import com.example.neteasecloudmusic.logic.network.Utils;
+import com.example.neteasecloudmusic.logic.network.entities.LoginResult;
 import com.example.neteasecloudmusic.ui.three.FollowFragment;
 import com.example.neteasecloudmusic.ui.three.LookFragment;
 import com.example.neteasecloudmusic.ui.adapter.viewpager.HomeFragmentViewPagerAdapter;
 import com.example.neteasecloudmusic.ui.three.MineFragment;
+import com.example.neteasecloudmusic.viewmodel.mine.MineViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

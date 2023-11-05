@@ -5,6 +5,8 @@ import android.util.Log;
 import androidx.work.Data;
 
 import com.example.neteasecloudmusic.logic.network.entities.LoginResult;
+import com.example.neteasecloudmusic.logic.network.entities.PlayListResult;
+import com.example.neteasecloudmusic.logic.network.entities.PlaylistDetailResult;
 
 import java.util.Date;
 
@@ -23,11 +25,20 @@ public interface ApiService {
      * @return 返回qr码的key
      */
     @GET("/login/qr/key")
-    Call<LoginResult.QrcodeKeyResult> getLoginQrcodeKey(@Query("timeStamp") String time);
+    Call<LoginResult.QrcodeKeyResult> getLoginQrcodeKey(@Query("timeStamp") Long time);
 
     @GET("/login/qr/create")
-    Call<LoginResult.QrcodeValueResult> getLoginQrcodeValue(@Query("key") String key, @Query("timeStamp") String time);
+    Call<LoginResult.QrcodeValueResult> getLoginQrcodeValue(@Query("key") String key, @Query("timeStamp") Long time);
 
     @GET("/login/qr/check")
-    Call<LoginResult.QrcodeAuthResult> checkQrcodeAuthStatus(@Query("key") String key, @Query("timeStamp") String time);
+    Call<LoginResult.QrcodeAuthResult> checkQrcodeAuthStatus(@Query("key") String key, @Query("timeStamp") Long time);
+
+    @GET("/user/account")
+    Call<LoginResult.AccountInfoResult> getAccountInfo(@Query("cookie") String cookie);
+
+    @GET("user/playlist")
+    Call<PlayListResult.UserPlayListResult> getUserPlayList(@Query("uid") String uid);
+
+    @GET("playlist/detail")
+    Call<PlaylistDetailResult> getPlaylistDetail(@Query("id") long id);
 }

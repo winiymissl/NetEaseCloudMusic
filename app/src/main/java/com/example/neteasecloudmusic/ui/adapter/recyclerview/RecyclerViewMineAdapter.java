@@ -1,5 +1,6 @@
 package com.example.neteasecloudmusic.ui.adapter.recyclerview;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.neteasecloudmusic.R;
+import com.example.neteasecloudmusic.logic.network.entities.PlayListResult;
 import com.example.neteasecloudmusic.ui.adapter.entity.ListViewInnerItem;
 
 import java.util.List;
@@ -19,10 +22,12 @@ import java.util.List;
  * @Date 2023-11-02 17:39
  * @Version 1.0
  */
-public class RecyclerViewMineAdapter extends RecyclerView.Adapter{
+public class RecyclerViewMineAdapter extends RecyclerView.Adapter {
     List list;
+    Context context;
 
-    public RecyclerViewMineAdapter(List list) {
+    public RecyclerViewMineAdapter(Context context, List list) {
+        this.context = context;
         this.list = list;
     }
 
@@ -49,10 +54,13 @@ public class RecyclerViewMineAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder myHolder = (MyViewHolder) holder;
-        ListViewInnerItem item = (ListViewInnerItem) list.get(position);
-        myHolder.imageView.setImageResource(item.getPicOne());
-        myHolder.textView1.setText(item.getNameOne());
-        myHolder.textView2.setText(item.getCountOne() + "首");
+        PlayListResult.PlaylistBean item = (PlayListResult.PlaylistBean) list.get(position);
+        Glide.with(context) // 使用Glide加载图片
+                .load(item.getCoverImgUrl()) // 加载网络图片的URL
+                .error(R.drawable.yuzhibo) // 设置加载失败时显示的图片
+                .into(myHolder.imageView); // 将图片设置到ImageView
+        myHolder.textView1.setText(item.getName());
+        myHolder.textView2.setText(String.valueOf(item.getTrackCount()) + "首");
     }
 
     @Override

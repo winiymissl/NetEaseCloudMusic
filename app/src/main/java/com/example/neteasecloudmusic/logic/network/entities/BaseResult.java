@@ -1,5 +1,7 @@
 package com.example.neteasecloudmusic.logic.network.entities;
 
+import com.example.neteasecloudmusic.logic.network.Code;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,10 @@ import java.io.Serializable;
 public class BaseResult implements Serializable {
     int code;
     String message;
+
+    public boolean resultOk() {
+        return Code.OK == code;
+    }
 
     public int getCode() {
         return code;
