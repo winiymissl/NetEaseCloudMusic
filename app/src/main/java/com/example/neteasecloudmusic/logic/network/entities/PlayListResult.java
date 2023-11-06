@@ -217,11 +217,11 @@ public class PlayListResult {
             this.al = al;
         }
 
-        String name;
-        long id;
+        String name; //歌曲的名字
+        long id; //歌曲的id
         long mv;
-        List<Ar> ar;
-        Al al;
+        List<Ar> ar; //作者：可能会有多个
+        Al al; //专辑
 
     }
 

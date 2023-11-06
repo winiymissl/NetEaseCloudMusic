@@ -1,6 +1,7 @@
 package com.example.neteasecloudmusic.ui.minefragment;
 
 import android.os.Bundle;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class MineInnerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine_inner, container, false);
         FragmentMineInnerBinding.bind(view);
-
+        setEnterTransition(TransitionInflater.from(container.getContext()).inflateTransition(R.transition.slide));
         return view;
     }
 }

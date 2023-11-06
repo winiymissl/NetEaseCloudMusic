@@ -26,9 +26,9 @@ import retrofit2.Response;
  * @Version 1.0
  */
 public class MineViewModel extends ViewModel {
+    //所有的数据，并没有将ViewModel单例
     private MutableLiveData<LoginResult.AccountInfoResult> userData = new MutableLiveData<>();
     private MutableLiveData<PlayListResult.UserPlayListResult> playlist = new MutableLiveData<>();
-
     private MutableLiveData<PlaylistDetailResult> playlistDetail = new MutableLiveData<>();
 
     public MutableLiveData<PlaylistDetailResult> getPlaylistDetail() {
@@ -37,6 +37,10 @@ public class MineViewModel extends ViewModel {
 
     public MutableLiveData<PlayListResult.UserPlayListResult> getPlaylist() {
         return playlist;
+    }
+
+    public MutableLiveData<LoginResult.AccountInfoResult> getUserData() {
+        return userData;
     }
 
     public void getPlayListInfo(long uid) {
@@ -70,9 +74,6 @@ public class MineViewModel extends ViewModel {
         });
     }
 
-    public MutableLiveData<LoginResult.AccountInfoResult> getUserData() {
-        return userData;
-    }
 
     public void getAccountInfo(String cookie) {
         Utils.SERVICE.getAccountInfo(cookie).enqueue(new Callback<LoginResult.AccountInfoResult>() {
