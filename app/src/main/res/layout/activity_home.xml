@@ -7,28 +7,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/home_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#EEEEEE"
-        android:orientation="vertical"
-        tools:context=".ui.HomeActivity">
+        android:layout_height="match_parent">
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vp_home"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/house" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNav_home_activity"
+        <LinearLayout
+            android:id="@+id/home_linearlayout"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_gravity="bottom"
-            android:background="@color/white"
-            app:menu="@menu/bottom_nav_menu" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:background="#EEEEEE"
+            android:orientation="vertical"
+            tools:context=".ui.HomeActivity">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_home"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/house" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNav_home_activity"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+
+                android:background="@color/white"
+                app:menu="@menu/bottom_nav_menu" />
+        </LinearLayout>
+    </FrameLayout>
 
     <include layout="@layout/drawerlayout" />
 </androidx.drawerlayout.widget.DrawerLayout>

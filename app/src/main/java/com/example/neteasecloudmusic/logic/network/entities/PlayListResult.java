@@ -228,7 +228,7 @@ public class PlayListResult {
     public class Ar {
         @Override
         public String toString() {
-            return "Ar{" + "id=" + id + ", name='" + name + '\'' + '}';
+            return name;
         }
 
         public long getId() {
@@ -246,6 +246,7 @@ public class PlayListResult {
         public void setName(String name) {
             this.name = name;
         }
+
 
         long id;
         String name;

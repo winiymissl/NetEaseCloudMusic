@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.neteasecloudmusic.R;
+import com.example.neteasecloudmusic.logic.network.entities.PlayListResult;
 
 import org.w3c.dom.Text;
 
@@ -21,6 +22,10 @@ import java.util.List;
  */
 public class SongListRecyclerViewAdapter extends RecyclerView.Adapter {
     List list;
+
+    public SongListRecyclerViewAdapter(List list) {
+        this.list = list;
+    }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textView_authority_name;
@@ -45,8 +50,10 @@ public class SongListRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder myViewHolder = (MyViewHolder) holder;
-        list.get(position);
-
+        PlayListResult.Track t = (PlayListResult.Track) list.get(position);
+        myViewHolder.textView_num.setText(String.valueOf(position + 1));
+        myViewHolder.textView_authority_name.setText(t.getAr().toString());
+        myViewHolder.textView_song_name.setText(t.getName());
     }
 
     @Override

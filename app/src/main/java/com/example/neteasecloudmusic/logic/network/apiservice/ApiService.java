@@ -7,6 +7,8 @@ import androidx.work.Data;
 import com.example.neteasecloudmusic.logic.network.entities.LoginResult;
 import com.example.neteasecloudmusic.logic.network.entities.PlayListResult;
 import com.example.neteasecloudmusic.logic.network.entities.PlaylistDetailResult;
+import com.example.neteasecloudmusic.logic.network.entities.SongBean;
+import com.example.neteasecloudmusic.logic.network.entities.SongDetailResult;
 
 import java.util.Date;
 
@@ -41,4 +43,10 @@ public interface ApiService {
 
     @GET("playlist/detail")
     Call<PlaylistDetailResult> getPlaylistDetail(@Query("id") long id);
+
+    @GET("song/detail")
+    Call<SongDetailResult> getSongDetail(@Query("ids") String ids);
+
+    @GET("/song/url/v1")
+    Call<SongBean.SongUrlBean> getSongUrl(@Query("id") long id, @Query("level") String level);
 }

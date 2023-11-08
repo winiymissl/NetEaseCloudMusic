@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.example.neteasecloudmusic.R;
 import com.example.neteasecloudmusic.logic.network.Utils;
 import com.example.neteasecloudmusic.logic.network.entities.LoginResult;
+import com.example.neteasecloudmusic.logic.network.global.Global;
 import com.example.neteasecloudmusic.ui.three.FollowFragment;
 import com.example.neteasecloudmusic.ui.three.LookFragment;
 import com.example.neteasecloudmusic.ui.adapter.viewpager.HomeFragmentViewPagerAdapter;
@@ -96,5 +98,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             viewPager.setCurrentItem(2, true);
         }
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MediaPlayer mediaPlayer = null;
+        if ((mediaPlayer = Global.getMediaPlayer()) != null) {
+            mediaPlayer.release();
+        }
     }
 }

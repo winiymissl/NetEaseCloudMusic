@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -89,33 +90,23 @@ public class MineFragment extends Fragment {
                                 listView.setAdapter(recyclerViewMineAdapter);
                                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                                 listView.setLayoutManager(layoutManager);
+
                                 listView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(View view, int position) {
                                         //设置一个点击事件之后，点击新建一个活动
 //                                        binding.consMineRoot.setVisibility(View.GONE);
-                                        Toast.makeText(getActivity(), "点击事件", Toast.LENGTH_SHORT).show();
+                                        Log.d("CheckPlayList", userPlayListResult.getPlaylist().get(0).toString());
                                         //新建一个碎片
-                                        getActivity().findViewById(R.id.drawerLayout_home).setVisibility(View.GONE);
-
-                                        // 获取FragmentManager
                                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-// 开始事务
-                                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-// 创建碎片实例
-                                        MineInnerFragment myFragment = new MineInnerFragment("change");
-
-// 将碎片添加到容器中（例如，一个FrameLayout）
-                                        fragmentTransaction.add(R.id.drawerLayout_home, myFragment);
-
-// 提交事务
-                                        fragmentTransaction.commit();
-
+                                        MineInnerFragment myFragment = new MineInnerFragment(userPlayListResult.getPlaylist().get(position));
+                                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                                        transaction.add(R.id.home_frame, myFragment);
+                                        transaction.addToBackStack(null);
+                                        transaction.commit();
                                     }
                                 }));
-                                model.getPlaylistDetail(userPlayListResult.getPlaylist().get(0).getId());
                             }
                         });
                     }
@@ -124,8 +115,6 @@ public class MineFragment extends Fragment {
                 Log.d("setLayoutManager", String.valueOf(value.getProfile().getUserId()));
             }
         });
-
-
         //布局
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawerLayout_home);
         ImageButton imageButton = view.findViewById(R.id.ib_mine);

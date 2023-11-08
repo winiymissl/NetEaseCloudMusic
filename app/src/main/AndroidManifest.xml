@@ -28,6 +28,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NetEaseCloudMusic"
         tools:targetApi="31">
+        <service
+            android:name=".logic.service.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity
+            android:name=".test.TestActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true">
@@ -38,10 +46,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".test.TestActivity"
-            android:exported="true">
-
-        </activity>
+            android:name=".ui.QrcodeActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.SearchActivity"
             android:exported="false" />
@@ -51,7 +57,7 @@
             android:label="" />
         <activity
             android:name=".ui.HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

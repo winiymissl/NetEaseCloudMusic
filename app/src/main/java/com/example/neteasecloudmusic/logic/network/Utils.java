@@ -1,17 +1,7 @@
 package com.example.neteasecloudmusic.logic.network;
 
-import android.util.Log;
-
-import androidx.lifecycle.ViewModelProvider;
-
 import com.example.neteasecloudmusic.logic.network.apiservice.ApiService;
-import com.example.neteasecloudmusic.logic.network.entities.LoginResult;
-import com.example.neteasecloudmusic.test.TestActivity;
-import com.example.neteasecloudmusic.viewmodel.mine.MineViewModel;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

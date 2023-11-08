@@ -5,16 +5,11 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.neteasecloudmusic.logic.network.Utils;
 import com.example.neteasecloudmusic.logic.network.entities.LoginResult;
 import com.example.neteasecloudmusic.logic.network.entities.PlayListResult;
 import com.example.neteasecloudmusic.logic.network.entities.PlaylistDetailResult;
-import com.example.neteasecloudmusic.test.TestActivity;
-import com.journeyapps.barcodescanner.Util;
-
-import java.util.function.LongToDoubleFunction;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,15 +26,17 @@ public class MineViewModel extends ViewModel {
     private MutableLiveData<PlayListResult.UserPlayListResult> playlist = new MutableLiveData<>();
     private MutableLiveData<PlaylistDetailResult> playlistDetail = new MutableLiveData<>();
 
-    public MutableLiveData<PlaylistDetailResult> getPlaylistDetail() {
+    public LiveData<PlaylistDetailResult> getPlaylistDetail() {
+
+
         return playlistDetail;
     }
 
-    public MutableLiveData<PlayListResult.UserPlayListResult> getPlaylist() {
+    public LiveData<PlayListResult.UserPlayListResult> getPlaylist() {
         return playlist;
     }
 
-    public MutableLiveData<LoginResult.AccountInfoResult> getUserData() {
+    public LiveData<LoginResult.AccountInfoResult> getUserData() {
         return userData;
     }
 
@@ -54,12 +51,11 @@ public class MineViewModel extends ViewModel {
             @Override
             public void onFailure(Call<PlayListResult.UserPlayListResult> call, Throwable t) {
 
-
             }
         });
     }
 
-    public void getPlaylistDetail(long id) {
+    public void getPlaylistDetailInfo(long id) {
         Utils.SERVICE.getPlaylistDetail(id).enqueue(new Callback<PlaylistDetailResult>() {
             @Override
             public void onResponse(Call<PlaylistDetailResult> call, Response<PlaylistDetailResult> response) {

@@ -35,25 +35,17 @@ android {
 }
 
 dependencies {
+
+
+    //动画
+    implementation("com.nineoldandroids:library:2.4.0")
+
     //进度条合集
 //    implementation("com.github.ForgetAll:LoadingDialog:v1.1.2")
     //exoPlayer
     implementation("com.google.android.exoplayer:exoplayer:2.18.5")
     //mmkv
 //    implementation("com.tencent:mmkv:1.3.1")
-    //ijkplayer
-//    # required, enough for most devices.
-//    implementation("tv.danmaku.ijk.media:ijkplayer-java:0.8.8")
-//    implementation("tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8")
-
-//    # Other ABIs: optional
-//    implementation("tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8")
-//    implementation("tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8")
-//    implementation("tv.danmaku.ijk.media:ijkplayer-x86:0.8.8")
-//    implementation("tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8")
-
-//    # ExoPlayer as IMediaPlayer: optional, experimental
-//    implementation("tv.danmaku.ijk.media:ijkplayer-exo:0.8.8")
 
     //相册选择器
     // PictureSelector basic (Necessary)
@@ -81,6 +73,9 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.12.0")
     //glide框架依赖
     implementation("io.github.youth5201314:banner:2.2.2")
+    //高斯模糊
+    implementation("jp.wasabeef:glide-transformations:4.3.0")
+
     // 扫一扫
     implementation("com.google.zxing:core:3.4.1")
     implementation("com.journeyapps:zxing-android-embedded:4.2.0")
