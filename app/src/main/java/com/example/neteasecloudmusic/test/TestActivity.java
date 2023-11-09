@@ -27,23 +27,5 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityTestBinding.bind(LayoutInflater.from(this).inflate(R.layout.activity_test, null, false));
         setContentView(binding.getRoot());
-
-        binding.btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-//                    binding.btn.setVisibility(View.GONE);
-//                    FragmentManager fragmentManager = getSupportFragmentManager();
-//                    MineInnerFragment myFragment = new MineInnerFragment();
-//                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-//                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-//                    transaction.replace(R.id.test, myFragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-                } catch (Exception e) {
-                    Log.d("IChangeSoMuch", e.toString());
-                }
-            }
-        });
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    motion:defaultDuration="3000">
+    <Transition
+        motion:constraintSetEnd="@+id/tv_end"
+        motion:constraintSetStart="@+id/tv_start">
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:maxVelocity="2"
+            motion:onTouchUp="autoCompleteToStart"
+            motion:touchAnchorId="@id/tv"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+    <ConstraintSet android:id="@+id/tv_start">
+        <Constraint
+            android:id="@id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:alpha="1.0" />
+
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/tv_end">
+        <Constraint
+            android:id="@id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:alpha="0.2"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+
+    </ConstraintSet>
+</MotionScene>
