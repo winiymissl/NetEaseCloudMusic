@@ -1,0 +1,85 @@
+1. 使用motionlayout
+2. 使用属性动画，检测onTouch，
+3. 使用 CoordinatorLayout 和 Behavior：
+
+Behavior 如何自定义
+
+ChatGPT
+在 Android 中，Behavior 是 CoordinatorLayout 的一个关键概念，它允许你定义 View 在 CoordinatorLayout 中的交互行为。自定义 Behavior 可以让你控制 View 在用户交互或其他事件中的动态变化，例如拖动、滑动、动画等。
+
+以下是自定义 Behavior 的基本步骤：
+
+创建自定义 Behavior 类：
+
+创建一个继承自 CoordinatorLayout.Behavior 的类。该类负责定义 View 在 CoordinatorLayout 中的行为。
+java
+Copy code
+public class CustomBehavior extends CoordinatorLayout.Behavior<View> {
+    // 实现自定义 Behavior 的逻辑
+}
+覆盖感兴趣的事件回调方法：
+
+在自定义 Behavior 中覆盖你感兴趣的事件回调方法，这取决于你想要实现的交互效果。以下是一些常见的回调方法：
+onLayoutChild(): 在布局子 View 时调用。
+onMeasureChild(): 在测量子 View 大小时调用。
+onStartNestedScroll(): 当开始嵌套滑动时调用。
+onNestedScroll(): 当嵌套滑动时调用。
+onNestedPreScroll(): 在嵌套滑动之前调用。
+等等。
+java
+Copy code
+public class CustomBehavior extends CoordinatorLayout.Behavior<View> {
+
+    @Override
+    public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
+        // 在布局子 View 时的逻辑
+        return super.onLayoutChild(parent, child, layoutDirection);
+    }
+
+    @Override
+    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int axes, int type) {
+        // 当开始嵌套滑动时的逻辑
+        return super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, axes, type);
+    }
+
+    // 其他回调方法
+}
+将 Behavior 附加到 View：
+
+在布局文件中，通过设置 app:layout_behavior 属性将自定义 Behavior 附加到你想要控制的 View 上。
+xml
+Copy code
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/myView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior=".CustomBehavior" />
+
+    <!-- 其他布局元素 -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+实现自定义 Behavior 的逻辑：
+
+在自定义 Behavior 的回调方法中实现你想要的交互逻辑。例如，你可以在 onStartNestedScroll() 中判断滑动的方向，并根据需要执行相应的动画。
+java
+Copy code
+public class CustomBehavior extends CoordinatorLayout.Behavior<View> {
+
+    @Override
+    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int axes, int type) {
+        // 在开始嵌套滑动时的逻辑
+        if (axes == ViewCompat.SCROLL_AXIS_VERTICAL) {
+            // 纵向滑动，执行你的动画逻辑
+        }
+        return super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, axes, type);
+    }
+
+    // 其他回调方法
+}
+这样，你就可以通过自定义 Behavior 控制 View 在 CoordinatorLayout 中的行为。根据需求，你可以在不同的回调方法中实现各种动态效果，例如响应滑动、触摸等操作。

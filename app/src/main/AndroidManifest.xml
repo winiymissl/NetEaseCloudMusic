@@ -29,12 +29,11 @@
         android:theme="@style/Theme.NetEaseCloudMusic"
         tools:targetApi="31">
         <service
-            android:name=".logic.service.MyService"
-            android:enabled="true"
+            android:name=".test.MyIntentService"
             android:exported="true"></service>
 
         <activity
-            android:name=".test.TestActivity"
+            android:name=".test.Test2Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,11 +41,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".logic.service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+
+        <activity
+            android:name=".test.TestActivity"
+            android:exported="true"
+            android:launchMode="singleTop"></activity>
         <activity
             android:name=".ui.SplashActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.QrcodeActivity"
             android:exported="true" />
@@ -61,4 +69,5 @@
             android:name=".ui.HomeActivity"
             android:exported="true" />
     </application>
+
 </manifest>

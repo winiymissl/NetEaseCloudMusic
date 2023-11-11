@@ -74,7 +74,7 @@ public class MineInnerFragment extends Fragment {
             public void onItemClick(View view, int position) {
                 try {
 //                    BottomNavigationView bottom = getActivity().findViewById(R.id.bottomNav_home_activity);
-                    AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.slide_down);
+//                    AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.slide_down);
 //                    animatorSet.setTarget(bottom);
 //                    animatorSet.start();
                 } catch (Exception e) {
